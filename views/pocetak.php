@@ -26,12 +26,13 @@
 <a href="<?php echo base_url('index.php/pocetak/abc/x') ?>" class="btn btn-primary">X</a>
 <hr>
 <?php if (isset($izvodjaci_abc)): ?>
-	<?php foreach ($izvodjaci_abc as $izvodjac_abc): ?>
+	<div class="list-group">
+		<?php foreach ($izvodjaci_abc as $izvodjac_abc): ?>
 
-		<ul class="list-group">
-			<li class="list-group-item"><a href="<?php echo base_url('index.php/pocetak/pjesme/'.$izvodjac_abc->izvodjac_id); ?>"><?php echo $izvodjac_abc->naziv; ?></a></li>
-		</ul>
-	<?php endforeach; ?>
+				<a href="<?php echo base_url('index.php/pocetak/pjesme/'.$izvodjac_abc->izvodjac_id); ?>" class="list-group-item list-group-item-action"><?php echo $izvodjac_abc->naziv; ?></a>
+			
+		<?php endforeach; ?>
+	</div>
 <?php endif; ?>
 <?php if (isset($tab)): ?>
 	<h1><?php echo $tab['naslov']; ?></h1>
@@ -39,10 +40,11 @@
 	<pre><?php echo $tab['tablatura']; ?></pre>
 <?php endif; ?>
 <?php if (isset($pjesme_izvodjaca)): ?>
-	<?php foreach ($pjesme_izvodjaca as $pjesma_izvodjaca): ?>
+	<div class="list-group">
+		<?php foreach ($pjesme_izvodjaca as $pjesma_izvodjaca): ?>
 
-		<ul class="list-group">
-			<li class="list-group-item"><a href="<?php echo base_url('index.php/pocetak/tab/'.$pjesma_izvodjaca->pjesma_id); ?>"><?php echo $pjesma_izvodjaca->naslov; ?></a></li>
-		</ul>
-	<?php endforeach; ?>
+			<a href="<?php echo base_url('index.php/pocetak/tab/'.$pjesma_izvodjaca->pjesma_id); ?>" class="list-group-item list-group-item-action"><?php echo $pjesma_izvodjaca->naslov; ?></a>
+			
+		<?php endforeach; ?>
+	</div>
 <?php endif; ?>
