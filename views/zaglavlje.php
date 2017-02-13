@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Pjesmarica</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<script src="<?php echo base_url(); ?>application/codemirror/lib/codemirror.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>application/codemirror/lib/codemirror.css">
+		<script src="<?php echo base_url(); ?>application/codemirror/mode/javascript/javascript.js"></script>
 		<!-- Piwik -->
 		<script type="text/javascript">
 		  var _paq = _paq || [];
