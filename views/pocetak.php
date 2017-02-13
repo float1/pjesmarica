@@ -35,6 +35,9 @@
 	</div>
 <?php endif; ?>
 <?php if (isset($tab)): ?>
+	<?php if (isset($_SESSION['korisnik_id']) && $_SESSION['tip_id'] == 1): ?>
+		<a href="<?php echo base_url('index.php/pjesma/uredi/'.$tab['pjesma_id']); ?>">Uredi</a>
+	<?php endif; ?>
 	<h1><?php echo $tab['naslov']; ?></h1>
 	<h2><?php echo $tab['naziv']; ?></h2>
 	<pre><?php echo $tab['tablatura']; ?></pre>
