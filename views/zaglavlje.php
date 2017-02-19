@@ -8,6 +8,7 @@
 		<script src="<?php echo base_url(); ?>application/codemirror/lib/codemirror.js"></script>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>application/codemirror/lib/codemirror.css">
 		<script src="<?php echo base_url(); ?>application/codemirror/mode/javascript/javascript.js"></script>
+		
 		<!-- Piwik -->
 		<script type="text/javascript">
 		  var _paq = _paq || [];
@@ -52,7 +53,7 @@
 			      	<?php if (!isset($_SESSION['korisnicko_ime'])): ?>
 			        	<a class="nav-link" href="<?php echo base_url('index.php/prijava'); ?>">Prijava</a>
 			        <?php else: ?>
-			        	<li class="nav-item"><a class="nav-link" href="#"><?php echo $_SESSION['korisnicko_ime']; ?></a></li>
+			        	<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/korisnik/moji_podaci/'.$korisnik['korisnik_id']); ?>"><?php echo $_SESSION['korisnicko_ime']; ?></a></li>
 			        	<a class="nav-link" href="<?php echo base_url('index.php/prijava/odjava'); ?>">Odjava</a>
 			        <?php endif; ?>
 			      </li>
