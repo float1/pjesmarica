@@ -26,9 +26,10 @@ class Pjesma extends CI_Controller {
 		$data['pjesme'] = $this->pjesma_model->paginacija_pjesme($config['per_page'], $this->uri->segment(2));
 		$data['paginacija'] = $this->pagination->create_links();
 		$data['broj_pjesama'] = $this->pjesma_model->broji_pjesme();
+		$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
 
-		$this->load->view('zaglavlje');
+		$this->load->view('zaglavlje', $data);
 		$this->load->view('pjesme', $data);
 		$this->load->view('podnozje');
 	}
@@ -110,12 +111,27 @@ class Pjesma extends CI_Controller {
 			
 		}
 
-		$data['pjesma'] = $this->pjesma_model->jedna_pjesma($id);
-		$data['izvodjaci'] = $this->izvodjac_model->svi_izvodjaci();
+		if (isset($_SESSION['korisnik_id']))
+		{
+			$data['pjesma'] = $this->pjesma_model->jedna_pjesma($id);
+			$data['izvodjaci'] = $this->izvodjac_model->svi_izvodjaci();
+			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
-		$this->load->view('zaglavlje');
-		$this->load->view('pjesma_uredi', $data);
-		$this->load->view('podnozje');
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('pjesma_uredi', $data);
+			$this->load->view('podnozje');
+		}
+		else
+		{
+			$data['pjesma'] = $this->pjesma_model->jedna_pjesma($id);
+			$data['izvodjaci'] = $this->izvodjac_model->svi_izvodjaci();
+
+			$this->load->view('zaglavlje');
+			$this->load->view('pjesma_uredi', $data);
+			$this->load->view('podnozje');
+		}
+
+		
 	}
 
 	public function brisi($id)

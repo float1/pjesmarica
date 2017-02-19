@@ -26,8 +26,9 @@ class Izvodjac extends CI_Controller {
 		$data['izvodjaci'] = $this->izvodjac_model->paginacija_izvodjaci($config['per_page'], $this->uri->segment(2));
 		$data['paginacija'] = $this->pagination->create_links();
 		$data['broj_izvodjaca'] = $this->izvodjac_model->broji_izvodjace();
+		$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
-		$this->load->view('zaglavlje');
+		$this->load->view('zaglavlje', $data);
 		$this->load->view('izvodjaci', $data);
 		$this->load->view('podnozje');
 	}

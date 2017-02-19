@@ -3,10 +3,11 @@ class Korisnik extends CI_Controller {
 
 	public function index()
 	{
+		$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 		$data['korisnici'] = $this->korisnik_model->svi_korisnici();
 		$data['broj_korisnika'] = count($data['korisnici']);
 
-		$this->load->view('zaglavlje');
+		$this->load->view('zaglavlje', $data);
 		$this->load->view('korisnici', $data);
 		$this->load->view('podnozje');
 	}
@@ -84,5 +85,19 @@ class Korisnik extends CI_Controller {
 		$this->korisnik_model->brisanje($id);
 
 		redirect('korisnik', 'location');
+	}
+
+	public function moji_podaci($id)
+	{
+		$data['korisnik'] = $this->korisnik_model->jedan_korisnik($id);
+
+		$this->load->view('zaglavlje', $data);
+		$this->load->view('moji_podaci', $data);
+		$this->load->view('podnozje');
+	}
+
+	public function promjena_lozinke($id)
+	{
+		
 	}
 }
