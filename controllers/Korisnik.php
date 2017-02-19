@@ -77,13 +77,16 @@ class Korisnik extends CI_Controller {
 			}
 		}
 		
+		if (isset($_SESSION['korisnik_id']))
+		{
+			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($id);
+			$data['tipovi_korisnika'] = $this->korisnik_model->dobavi_tipove_korisnika();
 
-		$data['korisnik'] = $this->korisnik_model->jedan_korisnik($id);
-		$data['tipovi_korisnika'] = $this->korisnik_model->dobavi_tipove_korisnika();
-
-		$this->load->view('zaglavlje');
-		$this->load->view('korisnik_uredi', $data);
-		$this->load->view('podnozje');
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('korisnik_uredi', $data);
+			$this->load->view('podnozje');
+		}
+		
 	}
 
 	public function brisi($id)
