@@ -8,7 +8,8 @@ Projekt nije dovršen, ali osnovne stvari funkcioniraju.
 2. preuzeti datoteke pjesmarice
 3. uvesti pjesmarica.sql datoteku u mysql sustav i kreirati korisnika za bazu
 4. kopirati ostale datoteke u odgovarajuća mjesta u CodeIgniter framework
-5. To bi trebalo biti to.
+5. Kreirati prvog admin korisnika putem http://localhost/pjesmarica/index.php/instalacija
+6. To bi trebalo biti to.
 
 # Demo
 
