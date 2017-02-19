@@ -93,12 +93,16 @@ class Izvodjac extends CI_Controller {
 			}
 		}
 		
+		if (isset($_SESSION['korisnik_id']))
+		{
+			$data['izvodjac'] = $this->izvodjac_model->jedan_izvodjac($id);
+			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
-		$data['izvodjac'] = $this->izvodjac_model->jedan_izvodjac($id);
-
-		$this->load->view('zaglavlje');
-		$this->load->view('izvodjac_uredi', $data);
-		$this->load->view('podnozje');
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('izvodjac_uredi', $data);
+			$this->load->view('podnozje');
+		}
+		
 	}
 
 	public function brisi($id)
