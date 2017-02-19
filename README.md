@@ -6,7 +6,7 @@ Projekt nije dovršen, ali osnovne stvari funkcioniraju.
 # Instalacija
 1. preuzeti codeigniter
 2. preuzeti datoteke pjesmarice
-3. uvesti pjesmarica.sql datoteku u mysql sustav i kreirati korisnika za bazu, izvršiti umetanje administratorskog korisnika u tablicu korisnika INSERT upitom
+3. uvesti pjesmarica.sql datoteku u mysql sustav i kreirati korisnika za bazu
 4. kopirati ostale datoteke u odgovarajuća mjesta u CodeIgniter framework
 5. To bi trebalo biti to.
 
