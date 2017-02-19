@@ -4,6 +4,7 @@ Ovo je pjesmarica napravljena pomoću CodeIgniter 3.1.3.
 Projekt nije dovršen, ali osnovne stvari funkcioniraju.
 
 # Instalacija
+0. https://www.youtube.com/watch?v=5sX3GbvBm6k
 1. preuzeti codeigniter
 2. preuzeti datoteke pjesmarice
 3. uvesti pjesmarica.sql datoteku u mysql sustav i kreirati korisnika za bazu
