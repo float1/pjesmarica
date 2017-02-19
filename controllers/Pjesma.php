@@ -68,11 +68,16 @@ class Pjesma extends CI_Controller {
 			
 		}
 
-		$data['izvodjaci'] = $this->izvodjac_model->svi_izvodjaci();
+		if (isset($_SESSION['korisnik_id']))
+		{
+			$data['izvodjaci'] = $this->izvodjac_model->svi_izvodjaci();
+			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
-		$this->load->view('zaglavlje');
-		$this->load->view('pjesma_kreiraj', $data);
-		$this->load->view('podnozje');
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('pjesma_kreiraj', $data);
+			$this->load->view('podnozje');
+		}
+		
 	}
 
 	function check_default($post_string)
@@ -118,15 +123,6 @@ class Pjesma extends CI_Controller {
 			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
 			$this->load->view('zaglavlje', $data);
-			$this->load->view('pjesma_uredi', $data);
-			$this->load->view('podnozje');
-		}
-		else
-		{
-			$data['pjesma'] = $this->pjesma_model->jedna_pjesma($id);
-			$data['izvodjaci'] = $this->izvodjac_model->svi_izvodjaci();
-
-			$this->load->view('zaglavlje');
 			$this->load->view('pjesma_uredi', $data);
 			$this->load->view('podnozje');
 		}

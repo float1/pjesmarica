@@ -34,11 +34,17 @@ class Korisnik extends CI_Controller {
 			
 		}
 
-		$data['tipovi_korisnika'] = $this->korisnik_model->dobavi_tipove_korisnika();
+		if (isset($_SESSION['korisnik_id']))
+		{
+			$data['tipovi_korisnika'] = $this->korisnik_model->dobavi_tipove_korisnika();
+			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
 
-		$this->load->view('zaglavlje');
-		$this->load->view('korisnik_kreiraj', $data);
-		$this->load->view('podnozje');
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('korisnik_kreiraj', $data);
+			$this->load->view('podnozje');
+		}
+
+		
 	}
 
 	public function uredi($id)
@@ -98,6 +104,22 @@ class Korisnik extends CI_Controller {
 
 	public function promjena_lozinke($id)
 	{
-		
+		$data['trenutna_lozinka'] = $this->input->post('trenutna_lozinka');
+		$data['nova_lozinka'] = password_hash($this->input->post('nova_lozinka'), PASSWORD_BCRYPT);
+
+		$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
+
+		if (password_verify($data['trenutna_lozinka'], $data['korisnik']['lozinka']))
+		{
+			$this->korisnik_model->azuriraj_lozinku($data['korisnik']['korisnik_id'], $data['nova_lozinka']);
+			redirect('pocetak', 'location');
+				
+		}
+		else
+		{
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('moji_podaci', $data);
+			$this->load->view('podnozje');
+		}
 	}
 }

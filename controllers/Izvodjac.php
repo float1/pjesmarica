@@ -54,10 +54,14 @@ class Izvodjac extends CI_Controller {
 		}
 
 		
-
-		$this->load->view('zaglavlje');
-		$this->load->view('izvodjac_kreiraj');
-		$this->load->view('podnozje');
+		if (isset($_SESSION['korisnik_id']))
+		{
+			$data['korisnik'] = $this->korisnik_model->jedan_korisnik($_SESSION['korisnik_id']);
+			$this->load->view('zaglavlje', $data);
+			$this->load->view('izvodjac_kreiraj');
+			$this->load->view('podnozje');
+		}
+		
 	}
 
 	public function uredi($id)
