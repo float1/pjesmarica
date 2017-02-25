@@ -38,4 +38,11 @@ class Korisnik_model extends CI_Model {
 
 		return $query->result();
 	}
+
+	public function azuriraj_lozinku($id, $lozinka)
+	{
+		$this->db->set('lozinka', $lozinka)
+				 ->where('korisnik_id', $id)
+				 ->update('korisnik');
+	}
 }
