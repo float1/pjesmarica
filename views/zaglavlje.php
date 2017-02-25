@@ -8,23 +8,6 @@
 		<script src="<?php echo base_url(); ?>application/codemirror/lib/codemirror.js"></script>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>application/codemirror/lib/codemirror.css">
 		<script src="<?php echo base_url(); ?>application/codemirror/mode/javascript/javascript.js"></script>
-		
-		<!-- Piwik -->
-		<script type="text/javascript">
-		  var _paq = _paq || [];
-		  _paq.push(["setDomains", ["*.zoran2.ddns.net/pjesmarica"]]);
-		  _paq.push(['trackPageView']);
-		  _paq.push(['enableLinkTracking']);
-		  (function() {
-		    var u="//zoran2.ddns.net/analitika/piwik/";
-		    _paq.push(['setTrackerUrl', u+'piwik.php']);
-		    _paq.push(['setSiteId', '3']);
-		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-		  })();
-		</script>
-		<noscript><p><img src="//zoran2.ddns.net/analitika/piwik/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
-		<!-- End Piwik Code -->
 
 	</head>
 	<body>
